@@ -98,6 +98,7 @@ document.querySelectorAll('.choices button').forEach(btn=>btn.onclick=async()=>{
   document.getElementById('thanks').style.display='block';
   await fetch('https://script.google.com/macros/s/AKfycbxWvRhxPK2tujhY9MfWBAFJCAgnoUU5wL_oMiVg78uEgqaDUqarQwpKzzQI5Lf73lya7A/exec',{
     method:'POST',headers:{'Content-Type':'application/json'},
+        mode: 'no-cors',           // ← add this line
     body:JSON.stringify({name:guest||'Friend',response:btn.dataset.choice,timestamp:new Date().toISOString()})});
 });
 </script>
