@@ -97,9 +97,8 @@ document.querySelectorAll('.choices button').forEach(btn=>btn.onclick=async()=>{
   document.getElementById('choiceBlock').style.display='none';
   document.getElementById('thanks').style.display='block';
   https://script.google.com/macros/s/AKfycbxba1aoK-KmFPUFHuz3tLQpbSTN_IXB9ubloi4Oy6aQ39qYTZK-sJdr1cwE7GqcTQkJ6g/exec
-  await fetch('https://script.google.com/macros/s/AKfycbxba1aoK-KmFPUFHuz3tLQpbSTN_IXB9ubloi4Oy6aQ39qYTZK-sJdr1cwE7GqcTQkJ6g/exec',{
-    method:'POST',headers:{'Content-Type':'application/json'},
-        mode: 'no-cors',           // ← add this line
+await fetch('/.netlify/functions/update-rsvp',{
+   method:'POST',headers:{'Content-Type':'application/json'},         // ← add this line
     body:JSON.stringify({name:guest||'Friend',response:btn.dataset.choice,timestamp:new Date().toISOString()})});
 });
 </script>
