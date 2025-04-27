@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ankon’s 24th – Sip, Sip, Hooray!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--headline:'Space Grotesk',sans-serif;--body:'Inter',sans-serif;--a1:#35fdfd;--a2:#ff49a2;--fg:#f5f5f5;--bg:#0d0d0d;--card:#141414}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);background:var(--bg);color:var(--fg);line-height:1.5}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+header{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2rem}
+h1{font-family:var(--headline);font-size:clamp(2.4rem,6vw,4rem);margin-bottom:.8rem;background:linear-gradient(135deg,var(--a1),var(--a2));-webkit-background-clip:text;color:transparent;animation:float 4s ease-in-out infinite;text-transform:uppercase;letter-spacing:1px}
+h2{font-family:var(--headline);font-size:1.1rem;margin-bottom:1.2rem;font-weight:300;color:rgba(255,255,255,.6)}
+.btn{margin-top:1.6rem;padding:.8rem 2.6rem;border:none;border-radius:40px;background:var(--a2);color:#fff;font-size:1rem;font-family:var(--headline);cursor:pointer;transition:transform .2s}
+.btn:hover{transform:translateY(-3px);opacity:.92}
+section{padding:4rem 1.5rem;max-width:800px;margin:auto;text-align:center}
+.card{background:var(--card);border-radius:20px;padding:2rem;margin-top:2rem;box-shadow:0 4px 12px rgba(0,0,0,.4)}
+iframe{border-radius:12px;width:100%;min-height:360px;margin-top:1rem}
+@media(max-width:600px){iframe{min-height:240px}}
+footer{padding:1.5rem 0;text-align:center;font-size:.85rem;font-family:var(--headline);color:rgba(255,255,255,.5)}
+a{color:var(--a1);text-decoration:none}
+/* modal */
+.modal{position:fixed;inset:0;display:flex;justify-content:center;align-items:center;background:rgba(0,0,0,.75);visibility:hidden;opacity:0;transition:opacity .25s}
+.modal.active{visibility:visible;opacity:1}
+.modal-content{background:var(--card);border-radius:16px;padding:2rem;width:90%;max-width:420px;text-align:center;box-shadow:0 6px 20px rgba(0,0,0,.6)}
+.modal-content h3{font-family:var(--headline);margin-bottom:1rem;font-size:1.25rem}
+.choices button{display:block;width:100%;margin:.5rem 0;padding:.8rem;border:none;border-radius:30px;background:var(--a1);color:#0d0d0d;font-size:1rem;font-family:var(--headline);cursor:pointer;transition:opacity .2s}
+.choices button:hover{opacity:.85}
+</style>
+</head>
+<body>
+<header>
+  <h1 id="hero-text">Sip, Sip, Hooray—Turning 24 the Tipsy Way!</h1>
+  <h2>Saturday, 10 May · 7:30 PM onwards · BnB @ Sector 21A, Gurgaon (10 min from Cybercity)</h2>
+  <button class="btn" id="rsvpBtn">RSVP</button>
+</header>
+
+<!-- Party banner image (embedded) -->
+<div style="max-width:800px;margin:2rem auto;text-align:center;">
+  <iframe src="https://assets.pinterest.com/ext/embed.html?id=14777505022127958" width="100%" height="436" style="border:none;" scrolling="no" frameborder="0"></iframe>
+</div>
+
+<section>
+  <h2>What to Expect</h2>
+  <div class="card">
+    <p>🍹 Overflowing drinks—cocktails, beers & house pours.</p>
+    <p>🍕 Food to keep you fueled through the night.</p>
+    <p>🎲 Party games—drop ideas on WhatsApp!</p>
+    <p>👔 <strong>Dress code:</strong> Black &amp; White (feel free to bend the rules and stand out in the group pic!)</p>
+  </div>
+</section>
+
+<section>
+  <h2>Playlist to be played</h2>
+  <div class="card">
+    <p>Click below to open the collaborative Spotify playlist and drop in your favorite tracks:</p>
+    <iframe src="https://open.spotify.com/embed/playlist/4YGa8IxedGqGq1i0lOBKyr?utm_source=generator" width="100%" height="380" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+  </div>
+</section>
+
+
+
+<section>
+  <h2>Find Your Way</h2>
+  <div class="card"><iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3505.9442235154456!2d77.0620642!3d28.511325799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDMwJzQwLjgiTiA3N8KwMDMnNDMuNCJF!5e0!3m2!1sen!2sin!4v1745730596144!5m2!1sen!2sin" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+</section>
+
+<footer>Questions? <a href="https://wa.me/91XXXXXXXXXX">Ping me on WhatsApp</a>. Can’t wait to party with you!</footer>
+
+<!-- RSVP Modal -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3>Are you in?</h3>
+    <div class="choices" id="choiceBlock">
+      <button data-choice="Coming">Coming for sure 🎉</button>
+      <button data-choice="Maybe">Not 100% sure 🤔</button>
+      <button data-choice="No">Won’t be able to make it 🙁</button>
+    </div>
+    <p id="thanks" style="margin-top:1rem;display:none;">Thanks for the response—see you soon! ✨</p>
+  </div>
+</div>
+
+<script>
+const guest=new URLSearchParams(location.search).get('to');
+if(guest)document.getElementById('hero-text').textContent=`Hey ${guest}! Sip, Sip, Hooray—Turning 24 the Tipsy Way!`;
+
+// RSVP handling
+const modal=document.getElementById('modal');
+document.getElementById('rsvpBtn').onclick=()=>modal.classList.add('active');
+modal.onclick=e=>{if(e.target===modal)modal.classList.remove('active');};
+
+document.querySelectorAll('.choices button').forEach(btn=>btn.onclick=async()=>{
+  document.getElementById('choiceBlock').style.display='none';
+  document.getElementById('thanks').style.display='block';
+  await fetch('https://script.google.com/macros/s/AKfycbxWvRhxPK2tujhY9MfWBAFJCAgnoUU5wL_oMiVg78uEgqaDUqarQwpKzzQI5Lf73lya7A/exec',{
+    method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({name:guest||'Friend',response:btn.dataset.choice,timestamp:new Date().toISOString()})});
+});
+</script>
+</body>
+</html>
