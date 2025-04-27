@@ -96,7 +96,8 @@ modal.onclick=e=>{if(e.target===modal)modal.classList.remove('active');};
 document.querySelectorAll('.choices button').forEach(btn=>btn.onclick=async()=>{
   document.getElementById('choiceBlock').style.display='none';
   document.getElementById('thanks').style.display='block';
-  await fetch('https://script.google.com/macros/s/AKfycbxWvRhxPK2tujhY9MfWBAFJCAgnoUU5wL_oMiVg78uEgqaDUqarQwpKzzQI5Lf73lya7A/exec',{
+  https://script.google.com/macros/s/AKfycbxba1aoK-KmFPUFHuz3tLQpbSTN_IXB9ubloi4Oy6aQ39qYTZK-sJdr1cwE7GqcTQkJ6g/exec
+  await fetch('https://script.google.com/macros/s/AKfycbxba1aoK-KmFPUFHuz3tLQpbSTN_IXB9ubloi4Oy6aQ39qYTZK-sJdr1cwE7GqcTQkJ6g/exec',{
     method:'POST',headers:{'Content-Type':'application/json'},
         mode: 'no-cors',           // ← add this line
     body:JSON.stringify({name:guest||'Friend',response:btn.dataset.choice,timestamp:new Date().toISOString()})});
